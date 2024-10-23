@@ -1,0 +1,46 @@
+input[type=text] {
+    width: 90px;
+    height: 90px;
+    font-size: 40px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 20px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+body{
+    margin: 0 auto;
+    background-color: #ede8f5;
+}
+.title{
+    display: flex; 
+    justify-content: center;
+    font-size: 50px;
+}
+.sudoku-grid{
+    display: flex;
+    justify-content: center;
+}
+.options{
+    display: flex;
+    justify-content: space-around;
+    padding-right: 600px;
+    padding-left: 600px;
+}
+.btn{
+    cursor: pointer;
+    margin: 30px;
+    font-size: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    color: white;
+    padding-bottom: 20px;
+    background-color: #3d52a0;
+    border-radius: 8px;
+}
+#validationResult{
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+}
