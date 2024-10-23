@@ -115,7 +115,8 @@
             </table>
             <div class="options">
                 <Button class="btn" onclick="solve()">Solve Suduko</Button>
-                <button class="btn" onclick="validate()">Validate Suduko</button>
+                <button class="btn" onclick="reset()">Reset</button>
+                <button class="btn" onclick="validate()">Validate Suduko</button>  
             </div>
             <h3 id="validationResult"></h3>
         </div>
@@ -135,13 +136,22 @@
                     if(check(val)){
                         row.push(val === "" ? '.' : val);
                     }else{ 
-                        alert("Enter valid Input between 1 to 9 cell"+i+" "+j);
+                        i++;
+                        j++;
+                        alert("Enter valid Input between 1 to 9 Row:"+i+" Column:"+j);
                         return false;
                     }
                 }
                 grid.push(row);
             }
             return grid;
+        }
+        function reset(){
+            for(let i=0; i<9; i++){
+                for(let j=0; j<9; j++){
+                    document.getElementById(i+"-"+j).value = '';
+                }
+            }
         }
         async function solve(){
             const grid = generateGrid();
