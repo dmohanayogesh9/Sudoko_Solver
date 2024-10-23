@@ -58,7 +58,7 @@ function validate(board){
                 k="("+board[i][j]+")";
                 set.add(i+k);
                 set.add(k+j);
-                set.add(i/3+k+j/3);
+                set.add(Math.floor(i/3)+k+Math.floor(j/3));
                 c+=3;
             }
         }
