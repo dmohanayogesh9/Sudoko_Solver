@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Validater And Solver</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h1 class="title">Suduko Solver</h1>
+        <div class="sudoku-container">
+            <table class="sudoku-grid">
+                <tbody>
+                    <tr>
+                        <td><input type="text" maxlength="1" id="0-0"></td>
+                        <td><input type="text" maxlength="1" id="0-1"></td>
+                        <td><input type="text" maxlength="1" id="0-2"></td>
+                        <td><input type="text" maxlength="1" id="0-3"></td>
+                        <td><input type="text" maxlength="1" id="0-4"></td>
+                        <td><input type="text" maxlength="1" id="0-5"></td>
+                        <td><input type="text" maxlength="1" id="0-6"></td>
+                        <td><input type="text" maxlength="1" id="0-7"></td>
+                        <td><input type="text" maxlength="1" id="0-8"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1" id="1-0"></td>
+                        <td><input type="text" maxlength="1" id="1-1"></td>
+                        <td><input type="text" maxlength="1" id="1-2"></td>
+                        <td><input type="text" maxlength="1" id="1-3"></td>
+                        <td><input type="text" maxlength="1" id="1-4"></td>
+                        <td><input type="text" maxlength="1" id="1-5"></td>
+                        <td><input type="text" maxlength="1" id="1-6"></td>
+                        <td><input type="text" maxlength="1" id="1-7"></td>
+                        <td><input type="text" maxlength="1" id="1-8"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1" id="2-0"></td>
+                        <td><input type="text" maxlength="1" id="2-1"></td>
+                        <td><input type="text" maxlength="1" id="2-2"></td>
+                        <td><input type="text" maxlength="1" id="2-3"></td>
+                        <td><input type="text" maxlength="1" id="2-4"></td>
+                        <td><input type="text" maxlength="1" id="2-5"></td>
+                        <td><input type="text" maxlength="1" id="2-6"></td>
+                        <td><input type="text" maxlength="1" id="2-7"></td>
+                        <td><input type="text" maxlength="1" id="2-8"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1" id="3-0"></td>
+                        <td><input type="text" maxlength="1" id="3-1"></td>
+                        <td><input type="text" maxlength="1" id="3-2"></td>
+                        <td><input type="text" maxlength="1" id="3-3"></td>
+                        <td><input type="text" maxlength="1" id="3-4"></td>
+                        <td><input type="text" maxlength="1" id="3-5"></td>
+                        <td><input type="text" maxlength="1" id="3-6"></td>
+                        <td><input type="text" maxlength="1" id="3-7"></td>
+                        <td><input type="text" maxlength="1" id="3-8"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1" id="4-0"></td>
+                        <td><input type="text" maxlength="1" id="4-1"></td>
+                        <td><input type="text" maxlength="1" id="4-2"></td>
+                        <td><input type="text" maxlength="1" id="4-3"></td>
+                        <td><input type="text" maxlength="1" id="4-4"></td>
+                        <td><input type="text" maxlength="1" id="4-5"></td>
+                        <td><input type="text" maxlength="1" id="4-6"></td>
+                        <td><input type="text" maxlength="1" id="4-7"></td>
+                        <td><input type="text" maxlength="1" id="4-8"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1" id="5-0"></td>
+                        <td><input type="text" maxlength="1" id="5-1"></td>
+                        <td><input type="text" maxlength="1" id="5-2"></td>
+                        <td><input type="text" maxlength="1" id="5-3"></td>
+                        <td><input type="text" maxlength="1" id="5-4"></td>
+                        <td><input type="text" maxlength="1" id="5-5"></td>
+                        <td><input type="text" maxlength="1" id="5-6"></td>
+                        <td><input type="text" maxlength="1" id="5-7"></td>
+                        <td><input type="text" maxlength="1" id="5-8"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1" id="6-0"></td>
+                        <td><input type="text" maxlength="1" id="6-1"></td>
+                        <td><input type="text" maxlength="1" id="6-2"></td>
+                        <td><input type="text" maxlength="1" id="6-3"></td>
+                        <td><input type="text" maxlength="1" id="6-4"></td>
+                        <td><input type="text" maxlength="1" id="6-5"></td>
+                        <td><input type="text" maxlength="1" id="6-6"></td>
+                        <td><input type="text" maxlength="1" id="6-7"></td>
+                        <td><input type="text" maxlength="1" id="6-8"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1" id="7-0"></td>
+                        <td><input type="text" maxlength="1" id="7-1"></td>
+                        <td><input type="text" maxlength="1" id="7-2"></td>
+                        <td><input type="text" maxlength="1" id="7-3"></td>
+                        <td><input type="text" maxlength="1" id="7-4"></td>
+                        <td><input type="text" maxlength="1" id="7-5"></td>
+                        <td><input type="text" maxlength="1" id="7-6"></td>
+                        <td><input type="text" maxlength="1" id="7-7"></td>
+                        <td><input type="text" maxlength="1" id="7-8"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1" id="8-0"></td>
+                        <td><input type="text" maxlength="1" id="8-1"></td>
+                        <td><input type="text" maxlength="1" id="8-2"></td>
+                        <td><input type="text" maxlength="1" id="8-3"></td>
+                        <td><input type="text" maxlength="1" id="8-4"></td>
+                        <td><input type="text" maxlength="1" id="8-5"></td>
+                        <td><input type="text" maxlength="1" id="8-6"></td>
+                        <td><input type="text" maxlength="1" id="8-7"></td>
+                        <td><input type="text" maxlength="1" id="8-8"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="options">
+                <Button class="btn" onclick="solve()">Solve Suduko</Button>
+                <button class="btn" onclick="reset()">Reset</button>
+                <button class="btn" onclick="validate()">Validate Suduko</button>  
+            </div>
+            <h3 id="validationResult"></h3>
+        </div>
+    </div>
+    <script>
+        function check(val){
+            if(val === "" || val === "1" || val === "2" || val === "3" || val === "4" || val === "5" || val === "6" || val === "7" ||val === "8" || val === "9" )
+            return true;
+            return false;
+        }
+        function generateGrid(){
+            const grid=[];
+            for(let i=0; i<9; i++){
+                let row = [];
+                for(let j=0; j<9; j++){
+                    let val = document.getElementById(i+"-"+j).value;
+                    if(check(val)){
+                        row.push(val === "" ? '.' : val);
+                    }else{ 
+                        i++;
+                        j++;
+                        alert("Enter valid Input between 1 to 9 Row:"+i+" Column:"+j);
+                        return false;
+                    }
+                }
+                grid.push(row);
+            }
+            return grid;
+        }
+        function reset(){
+            for(let i=0; i<9; i++){
+                for(let j=0; j<9; j++){
+                    document.getElementById(i+"-"+j).value = '';
+                }
+            }
+        }
+        async function solve(){
+            const grid = generateGrid();
+            if(grid === false)
+            return;
+            const response = await fetch("http://localhost:9999/solve", {
+                method:'POST',
+                headers:{
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify({grid}),
+            });
+            const contentType = response.headers.get("Content-Type");
+            if(contentType.includes('application/json')){
+                const data = await response.json();
+                const grid = data.grid;
+                for(let i=0; i<9; i++){
+                    for(let j=0; j<9; j++){
+                        document.getElementById(i+"-"+j).value = grid[i][j];
+                    }
+                }
+            }else{
+                const data = await response.text();
+                document.getElementById("validationResult").innerHTML = "No Viable Solution Exists";
+            }
+        }
+        async function validate() {
+            const grid = generateGrid();
+            if(grid === false)
+            return;
+            const response = await fetch("http://localhost:9999/validate", {
+                method:'POST',
+                headers:{
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify({grid}),
+            });
+            const data = await response.text();
+            if(data === "true"){
+                document.getElementById("validationResult").innerHTML = "Validion Result : Success";
+            }else document.getElementById("validationResult").innerHTML = "Validion Result : Failed";
+        }
+    </script>
+</body>
+</html>

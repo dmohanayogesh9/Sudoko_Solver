@@ -1,0 +1,9 @@
+Protocol (e.g., http or https)
+Domain (e.g., example.com)
+Port (e.g., :3000)
+
+Two URLs are considered to have different origins if any one of these three components is different.
+
+Browsers block requests made across different origins unless the server allows them. Using cors in your server code enables it to respond to requests from other origins by adding the necessary headers.
+
+body: { grid }: Here, you are directly passing a JavaScript object as the body. However, the fetch API expects the body to be a string (like a JSON string when the Content-Type is application/json). Passing an object directly will lead to an error because fetch cannot send an object directly in the request body.
