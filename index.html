@@ -123,7 +123,7 @@
     </div>
     <script>
         function check(val){
-            if(val === "" || val === "1" || val === "2" || val === "3" || val === "4" || val === "5" || val === "6" || val === "7" ||val === "8" || val === "9" )
+            if(val == "" || val == "1" || val == "2" || val == "3" || val == "4" || val == "5" || val == "6" || val == "7" ||val == "8" || val == "9" )
             return true;
             return false;
         }
@@ -149,14 +149,16 @@
         function reset(){
             for(let i=0; i<9; i++){
                 for(let j=0; j<9; j++){
-                    document.getElementById(i+"-"+j).value = '';
+                    document.getElementById(i+"-"+j).value = "";
                 }
             }
+            document.getElementById("validationResult").innerHTML = '';
         }
         async function solve(){
             const grid = generateGrid();
             if(grid === false)
             return;
+            console.log("-1");
             const response = await fetch("http://localhost:9999/solve", {
                 method:'POST',
                 headers:{
@@ -165,10 +167,16 @@
                 body: JSON.stringify({grid}),
             });
             const data = await response.json();
-            for(let i=0; i<9; i++){
-                for(let j=0; j<9; j++){
-                    document.getElementById(i+"-"+j).value = data.grid[i][j];
+            if(data.message ==true){
+                const grid = data.grid;
+                for(let i=0; i<9; i++){
+                    for(let j=0; j<9; j++){
+                        document.getElementById(i+"-"+j).value = grid[i][j];
+                    }
                 }
+                document.getElementById("validationResult").innerHTML = '';
+            }else{
+                document.getElementById("validationResult").innerHTML = "No Viable Solution Exists";
             }
         }
         async function validate() {
@@ -182,8 +190,8 @@
                 },
                 body: JSON.stringify({grid}),
             });
-            const data = await response.text();
-            if(data === "true"){
+            const data = await response.json();
+            if(data.message === true){
                 document.getElementById("validationResult").innerHTML = "Validion Result : Success";
             }else document.getElementById("validationResult").innerHTML = "Validion Result : Failed";
         }
