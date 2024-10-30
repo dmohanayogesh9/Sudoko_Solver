@@ -42,13 +42,8 @@ function solve(board){
     }
     return true;
 }
-app.post("/solve", (req,res)=>{
-    const grid = req.body.grid;
-    if(solve(grid)){
-        res.send(JSON.stringify({grid}));   
-    }else res.send("No Solution Exists");
-});
-function validate(board){
+function validate(req, res, next){
+    const board = req.body.grid;
     const set = new Set();
     let c=0;
     for(let i=0;i<9;i++){
@@ -63,15 +58,20 @@ function validate(board){
             }
         }
     }
-    if(c==set.size)
-    return true;
-    return false;
+    if(c!=set.size){
+        res.json({message:false}); 
+        return;
+    }
+    next();
 }
-app.post("/validate", (req,res)=>{
+app.post("/solve",validate, (req,res)=>{
     const grid = req.body.grid;
-    if(validate(grid)){
-        res.send("true");   
-    }else res.send("false");
+    solve(grid)
+    res.json({grid, message:true});   
+});
+
+app.post("/validate", validate, (req,res)=>{
+    res.json({message:true}); 
 });
 app.listen(9999);
 
